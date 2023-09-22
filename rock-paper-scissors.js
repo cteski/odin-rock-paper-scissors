@@ -2,6 +2,8 @@ const LOSE = 0;
 const TIE = 1;
 const WIN = 2;
 
+const buttons = document.querySelectorAll('button');
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let computerChoice = getComputerChoice();
