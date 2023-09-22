@@ -1,6 +1,6 @@
-const lose = 0;
-const tie = 1;
-const win = 2;
+const LOSE = 0;
+const TIE = 1;
+const WIN = 2;
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -23,39 +23,39 @@ function playRound(playerSelection, computerSelection) {
         case 'rock':
             switch (computerSelection) {
                 case 'rock':
-                    result = 1;
+                    result = TIE;
                     break;
                 case 'paper':
-                    result = 0;
+                    result = LOSE;
                 break;
                 case 'scissors':
-                    result = 2;
+                    result = WIN;
                 break;
             }
         break;
         case 'paper':
             switch (computerSelection) {
                 case 'rock':
-                    result = 2;
+                    result = WIN;
                     break;
                 case 'paper':
-                    result = 1;
+                    result = TIE;
                 break;
                 case 'scissors':
-                    result = 1;
+                    result = LOSE;
                 break;
             }
         break;
         case 'scissors':
             switch (computerSelection) {
                 case 'rock':
-                    result = 0;
+                    result = LOSE;
                     break;
                 case 'paper':
-                    result = 2;
+                    result = WIN;
                 break;
                 case 'scissors':
-                    result = 1;
+                    result = TIE;
                 break;
             }
         break;
