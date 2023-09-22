@@ -1,3 +1,13 @@
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let computerChoice = getComputerChoice();
+        playRound(button.id, computerChoice);
+    });
+})
+
+
 function getComputerChoice() {
     let choices = [];
     choices.push('rock', 'paper', 'scissors');
