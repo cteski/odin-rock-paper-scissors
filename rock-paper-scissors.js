@@ -1,4 +1,6 @@
-const buttons = document.querySelectorAll('button');
+const lose = 0;
+const tie = 1;
+const win = 2;
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -6,7 +8,6 @@ buttons.forEach((button) => {
         playRound(button.id, computerChoice);
     });
 })
-
 
 function getComputerChoice() {
     let choices = [];
