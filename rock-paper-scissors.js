@@ -4,22 +4,42 @@ const WIN = 2;
 
 const buttons = document.querySelectorAll('button');
 
+const resultsDiv = document.querySelector('#results');
+const resultList = document.createElement('ul');
+
+
 let playerWins = 0;
 let computerWins = 0;
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        const resultItem = document.createElement('li');
         let computerChoice = getComputerChoice();
         let result = playRound(button.id, computerChoice);
+        let message = '';
+
+        if (!resultsDiv.contains(resultList)) {
+            resultsDiv.appendChild(resultList);
+        }
 
         switch(result) {
+            case TIE :
+                message = `It's a tie!`;
+                break;
             case LOSE:
                 computerWins += 1;
+                message = `You lose!`;
                 break;
             case WIN:
                 playerWins += 1;
+                message = `You win!`;
                 break;
         }
+
+        message = message.concat(' ', `You chose ${button.id}, and the computer chose ${computerChoice}!`);
+        resultItem.textContent = message;
+
+        resultList.appendChild(resultItem);
     });
 })
 
