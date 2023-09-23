@@ -4,6 +4,9 @@ const WIN = 2;
 
 const buttons = document.querySelectorAll('button');
 
+let playerWins = 0;
+let computerWins = 0;
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let computerChoice = getComputerChoice();
