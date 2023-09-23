@@ -10,7 +10,16 @@ let computerWins = 0;
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let computerChoice = getComputerChoice();
-        playRound(button.id, computerChoice);
+        let result = playRound(button.id, computerChoice);
+
+        switch(result) {
+            case LOSE:
+                computerWins += 1;
+                break;
+            case WIN:
+                playerWins += 1;
+                break;
+        }
     });
 })
 
