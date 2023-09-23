@@ -2,6 +2,10 @@ const LOSE = 0;
 const TIE = 1;
 const WIN = 2;
 
+const LOSE_MESAGE = `You lose!`;
+const TIE_MESSAGE = `It's a tie!`;
+const WIN_MESSAGE = `You win!`;
+
 const buttons = document.querySelectorAll('button');
 
 const resultsDiv = document.querySelector('#results');
@@ -24,15 +28,15 @@ buttons.forEach((button) => {
 
         switch(result) {
             case TIE :
-                message = `It's a tie!`;
+                message = TIE_MESSAGE;
                 break;
             case LOSE:
                 computerWins += 1;
-                message = `You lose!`;
+                message = LOSE_MESAGE;
                 break;
             case WIN:
                 playerWins += 1;
-                message = `You win!`;
+                message = WIN_MESSAGE;
                 break;
         }
 
