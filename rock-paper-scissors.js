@@ -5,6 +5,11 @@ const WIN = 2;
 const LOSE_MESAGE = `You lose!`;
 const TIE_MESSAGE = `It's a tie!`;
 const WIN_MESSAGE = `You win!`;
+const PLAYER_IS_WINNER = `You have`;
+const COMPUTER_IS_WINNER = `The computer has`
+const WINNER_MESSAGE = ` won five rounds and won the game!`;
+
+const WIN_THRESHOLD = 5;
 
 const buttons = document.querySelectorAll('button');
 
@@ -21,6 +26,8 @@ buttons.forEach((button) => {
         let computerChoice = getComputerChoice();
         let result = playRound(button.id, computerChoice);
         let message = '';
+        let finalResult = '';
+        let displayFinalResults = false;
 
         if (!resultsDiv.contains(resultList)) {
             resultsDiv.appendChild(resultList);
@@ -40,10 +47,24 @@ buttons.forEach((button) => {
                 break;
         }
 
+        if (playerWins == WIN_THRESHOLD)
+        {
+            finalResult = PLAYER_IS_WINNER.concat(WINNER_MESSAGE);
+            displayFinalResults = true;
+        }
+
+        if (computerWins == WIN_THRESHOLD) {
+            finalResult = COMPUTER_IS_WINNER.concat(WINNER_MESSAGE);
+            displayFinalResults = true;
+        }
+
         message = message.concat(' ', `You chose ${button.id}, and the computer chose ${computerChoice}!`);
         resultItem.textContent = message;
-
         resultList.appendChild(resultItem);
+
+        if (displayFinalResults) {
+            resultsDiv.textContent = finalResult;
+        }
     });
 })
 
