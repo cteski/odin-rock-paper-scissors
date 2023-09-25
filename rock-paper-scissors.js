@@ -8,6 +8,7 @@ const WIN_MESSAGE = `You win!`;
 const PLAYER_IS_WINNER = `You have`;
 const COMPUTER_IS_WINNER = `The computer has`
 const WINNER_MESSAGE = ` won five rounds and won the game!`;
+const RESET_MESSAGE = `Are you sure you want to reset the game?`;
 
 const WIN_THRESHOLD = 5;
 
@@ -26,7 +27,7 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         if (button.id == 'reset')
         {
-            resetGame();
+            if (confirm(RESET_MESSAGE)) resetGame();
             return;
         }
 
