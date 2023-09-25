@@ -14,8 +14,10 @@ const WIN_THRESHOLD = 5;
 const buttons = document.querySelectorAll('button');
 
 const resultsDiv = document.querySelector('#results');
+const finalResultsDiv = document.querySelector('#final-results');
 const resultList = document.createElement('ul');
-
+const playerWinCountDiv = document.querySelector("#player-win-count");
+const computerWinCountDiv = document.querySelector("#computer-win-count");
 
 let playerWins = 0;
 let computerWins = 0;
@@ -47,6 +49,9 @@ buttons.forEach((button) => {
                 break;
         }
 
+        playerWinCountDiv.textContent = playerWins;
+        computerWinCountDiv.textContent = computerWins;
+
         if (playerWins == WIN_THRESHOLD)
         {
             finalResult = PLAYER_IS_WINNER.concat(WINNER_MESSAGE);
@@ -63,7 +68,7 @@ buttons.forEach((button) => {
         resultList.appendChild(resultItem);
 
         if (displayFinalResults) {
-            resultsDiv.textContent = finalResult;
+            finalResultsDiv.textContent = finalResult;
         }
     });
 })
