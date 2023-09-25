@@ -24,6 +24,12 @@ let computerWins = 0;
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        if (button.id == 'reset')
+        {
+            resetGame();
+            return;
+        }
+
         const resultItem = document.createElement('li');
         let computerChoice = getComputerChoice();
         let result = playRound(button.id, computerChoice);
@@ -126,4 +132,16 @@ function playRound(playerSelection, computerSelection) {
     }
 
     return result;
+}
+
+function resetGame() {
+    playerWins = 0;
+    playerWinCountDiv.textContent = 0;
+    computerWins = 0;
+    computerWinCountDiv.textContent = 0;
+
+    finalResultsDiv.textContent = '';
+
+    resultList.innerHTML = '';
+    resultsDiv.removeChild(resultList);
 }
