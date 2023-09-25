@@ -31,6 +31,10 @@ buttons.forEach((button) => {
             return;
         }
 
+        if (playerWins == 5 || computerWins == 5) {
+            resetGame();
+        }
+
         const resultItem = document.createElement('li');
         let computerChoice = getComputerChoice();
         let result = playRound(button.id, computerChoice);
